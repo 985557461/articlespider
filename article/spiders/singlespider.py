@@ -52,7 +52,11 @@ class ArticleSpider(Spider):
                     if str(img.xpath('@src').extract()[0]).startswith('data:image/'):
                         log.msg('diu qi image')
                     else:
-                        imgpath = self.imageQianZhui + img.xpath('@src').extract()[0]
+                        imgpath = img.xpath('@src').extract()[0]
+                        if imgpath.startswith('http:') or imgpath.startswith('https:'):
+                            log.msg('nothing to do')
+                        else:
+                            imgpath = self.imageQianZhui + imgpath
                         if len(self.currentMainImage) == 0:
                             self.currentMainImage = imgpath
                         self.contentList.append(imgpath)

@@ -33,7 +33,7 @@ class ArticlePipeline(object):
 class DBPipeline(object):
     def __init__(self):
         try:
-            self.db = MySQLdb.connect(host="101.200.165.239", user="root", passwd="root", port=3306, db="xiaoyusuper",
+            self.db = MySQLdb.connect(host="xxx", user="root", passwd="root", port=3306, db="xiaoyusuper",
                                       charset="utf8")
             self.cursor = self.db.cursor()
             print "Connect to db successfully!"
